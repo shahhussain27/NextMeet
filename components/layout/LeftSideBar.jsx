@@ -16,13 +16,14 @@ const LeftSideBar = () => {
     const response = await fetch(`/api/user/${user.id}`);
     const data = await response.json();
     setUserData(data);
-    setLoading(false)
+    setLoading(false);
   };
 
-  // console.log(userData)
 
   useEffect(() => {
-    getUser();
+    if (user) {
+      getUser();
+    }
   }, [user]);
   return loading || !isLoaded ? (
     <Loader />
@@ -45,8 +46,8 @@ const LeftSideBar = () => {
                 <Image
                   src={userData?.profilePhoto}
                   alt="profile photo"
-                  width={200}
-                  height={200}
+                  width={100}
+                  height={100}
                   className="rounded-full"
                 />
               </Link>

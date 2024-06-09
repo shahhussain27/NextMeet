@@ -1,11 +1,6 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
-export default clerkMiddleware(
-  {
-    publicRoutes: ["/api/webhook"],
-  },
-  { debug: true }
-);
+export default clerkMiddleware();
 
 // console.log("middleware...");
 

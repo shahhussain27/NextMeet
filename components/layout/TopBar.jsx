@@ -1,17 +1,16 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useUser, UserButton } from "@clerk/nextjs";
 import { CiSearch } from "react-icons/ci";
 import { FiPlus } from "react-icons/fi";
-import { SignOutButton, SignedIn, UserButton } from "@clerk/nextjs";
-import { IoIosLogOut } from "react-icons/io";
 import Link from "next/link";
 
 const TopBar = () => {
   const [search, setSearch] = useState("");
   const router = useRouter();
   return (
-    <div className="flex justify-between items-center mt-6 w-full">
+    <div className="flex justify-around items-center mt-6 w-full">
       <div className="relative">
         <input
           type="text"
@@ -23,7 +22,9 @@ const TopBar = () => {
           }}
         />
         <button
-          onClick={() => {}}
+          onClick={() => {
+            router.push(`/search/posts/${search}`);
+          }}
           className="absolute top-1/2 transform -translate-y-1/2 right-2 cursor-pointer text-2xl"
         >
           <CiSearch />
@@ -40,16 +41,8 @@ const TopBar = () => {
         Create A Post
       </button>
       <div className="flex gap-3 md:hidden">
-        <SignedIn>
-          <SignOutButton>
-            <div className="flex items-center ">
-              <p className="text-3xl">
-                <IoIosLogOut />
-              </p>
-            </div>
-          </SignOutButton>
-        </SignedIn>
-        <Link href={"/"}>Profile Image</Link>
+        {/* <Link href={"/"}>Profile Image</Link> */}
+        <UserButton afterSignOutUrl="/sign-in" />
       </div>
     </div>
   );

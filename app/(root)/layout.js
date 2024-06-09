@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import LeftSideBar from "@components/layout/LeftSideBar";
 import RightSideBar from "@components/layout/RightSideBar";
-import TopBar from "@components/layout/TopBar";
 import MainContainer from "@components/layout/MainContainer";
 import BottomBar from "@components/layout/BottomBar";
 import "../globals.css";
@@ -22,7 +21,7 @@ export default function RootLayout({ children }) {
           <main className="flex flex-row">
           <LeftSideBar />
           <MainContainer>
-            <TopBar />
+           
             {children}
           </MainContainer>
           <RightSideBar />

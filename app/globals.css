@@ -11,5 +11,13 @@
 }
 
 .create-post-btn {
-  @apply flex items-center gap-2 rounded-lg py-2.5 px-3 bg-gradient-to-l from-pink-100 to-purple-100 max-md:hidden;
+  @apply flex items-center gap-2 rounded-lg py-2.5 px-3 bg-pink-100 hover:bg-gradient-to-l from-pink-500 to-purple-600 hover:text-white max-md:hidden;
+}
+
+.input{
+  @apply p-2.5 rounded-lg border-none focus:outline-none mt-3 bg-slate-100
+}
+
+.tab{
+  @apply px-4 py-2 rounded-lg font-semibold
 }
