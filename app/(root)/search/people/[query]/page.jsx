@@ -31,12 +31,15 @@ const SearchPeople = () => {
         <Link className="tab bg-purple-100" href={`/search/posts/${query}`}>
           Posts
         </Link>
-        <Link className="tab bg-purple-500 text-white" href={`/search/people/${query}`}>
+        <Link
+          className="tab bg-purple-500 text-white"
+          href={`/search/people/${query}`}
+        >
           Poeple
         </Link>
       </div>
       {searchPeople.map((person) => (
-        <UserCard kry={person._id} userData={person} />
+        <UserCard kry={person._id} userData={person} update={getSearchPeople} />
       ))}
     </div>
   );

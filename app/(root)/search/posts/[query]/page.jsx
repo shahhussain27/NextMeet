@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useUser } from "@clerk/nextjs";
 import Loader from "@components/Loader";
 import PostCard from "@components/cards/PostCard";
@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 
 const SearchPost = () => {
   const { query } = useParams();
-  const {user, isLoaded} = useUser()
+  const { user, isLoaded } = useUser();
   const [loading, setLoading] = useState(true);
   const [searchPosts, setSearchPosts] = useState([]);
 
@@ -27,7 +27,10 @@ const SearchPost = () => {
   ) : (
     <div className="flex flex-col gap-10">
       <div className="flex gap-6">
-        <Link className="tab bg-purple-500 text-white" href={`/search/posts/${query}`}>
+        <Link
+          className="tab bg-purple-500 text-white"
+          href={`/search/posts/${query}`}
+        >
           Posts
         </Link>
         <Link className="tab bg-purple-100" href={`/search/people/${query}`}>
@@ -35,7 +38,13 @@ const SearchPost = () => {
         </Link>
       </div>
       {searchPosts.map((post) => (
-        <PostCard key={post._id} post={post} creator={post.creator} loggedInUser={user} />
+        <PostCard
+          key={post._id}
+          post={post}
+          creator={post.creator}
+          loggedInUser={user}
+          update={getSearchPosts}
+        />
       ))}
     </div>
   );

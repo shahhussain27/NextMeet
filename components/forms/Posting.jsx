@@ -32,7 +32,7 @@ const Posting = ({ post, apiEndpoint }) => {
       });
 
       if (response.ok) {
-        router.push(`/profile/${data.creatorId}`);
+        router.push(`/profile/${data.creatorId}/posts`);
       }
     } catch (error) {
       console.error(error);
@@ -89,7 +89,11 @@ const Posting = ({ post, apiEndpoint }) => {
         type="file"
         style={{ display: "none" }}
       />
-      {errors.postPhoto && <span>{errors.postPhoto.message}</span>}
+      {errors.postPhoto && (
+        <span className="text-sm text-rose-600">
+          {errors.postPhoto.message}
+        </span>
+      )}
 
       <div>
         <label htmlFor="caption" className="">
@@ -110,7 +114,11 @@ const Posting = ({ post, apiEndpoint }) => {
           placeholder="What's on your mind?"
           className="w-full input"
         />
-        {errors.caption && <span>{errors.caption.message}</span>}
+        {errors.caption && (
+          <span className="text-sm text-rose-600">
+            {errors.caption.message}
+          </span>
+        )}
       </div>
       <div>
         <label htmlFor="tag" className="">
@@ -125,7 +133,9 @@ const Posting = ({ post, apiEndpoint }) => {
           placeholder="#tag"
           className="w-full input"
         />
-        {errors.tag && <span>{errors.tag.message}</span>}
+        {errors.tag && (
+          <span className="text-sm text-rose-600">{errors.tag.message}</span>
+        )}
       </div>
       <button
         type="submit"

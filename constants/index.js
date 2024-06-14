@@ -1,6 +1,6 @@
-import { CiHome } from "react-icons/ci";
+import { CiHome, CiHeart } from "react-icons/ci";
 import { BiImageAdd } from "react-icons/bi";
-import { IoPeopleOutline } from "react-icons/io5";
+import { IoPeopleOutline, IoBookmarksOutline } from "react-icons/io5";
 import { TbUserEdit } from "react-icons/tb";
 
 export const sidebarLinks = [
@@ -20,9 +20,14 @@ export const sidebarLinks = [
     label: "People",
   },
   {
-    icon: <TbUserEdit />,
-    route: "/edit-profile",
-    label: "Edit Profile",
+    icon: <IoBookmarksOutline />,
+    route: "/saved-posts",
+    label: "Saved Posts",
+  },
+  {
+    icon: <CiHeart />,
+    route: "/liked-posts",
+    label: "Liked Posts",
   },
 ];
 
@@ -42,5 +47,20 @@ export const pageTitles = [
   {
     url: "/search",
     title: "Search",
+  },
+];
+
+export const tabs = [
+  {
+    link: "posts",
+    name: "Posts",
+  },
+  {
+    link: "followers",
+    name: "Followers",
+  },
+  {
+    link: "following",
+    name: "Following",
   },
 ];

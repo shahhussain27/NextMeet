@@ -1,12 +1,13 @@
 import User from "@lib/models/User";
 import Post from "@lib/models/Posts";
 import { connectToDB } from "@lib/mongodb/mongoose";
+import { model } from "mongoose";
 
 export const GET = async (req, { params }) => {
   try {
     await connectToDB();
 
-    const user = await User.findOne({ clerkId: params.id })
+    const user = await User.findById(params.profileId)
       .populate({
         path: "posts savedPosts likedPosts",
         model: Post,

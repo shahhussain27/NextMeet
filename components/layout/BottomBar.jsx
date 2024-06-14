@@ -7,7 +7,7 @@ import Link from "next/link";
 const BottomBar = () => {
   const pathname = usePathname();
   return (
-    <div className="flex items-center justify-between bottom-0 z-20 w-full px-6 py-3 md:hidden">
+    <div className="fixed flex items-center justify-between bg-white bottom-0 z-20 w-full px-6 py-3 md:hidden">
       {sidebarLinks.map((link) => {
         const inActive = pathname === link.route;
         return (
